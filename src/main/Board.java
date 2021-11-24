@@ -380,8 +380,8 @@ public class Board implements IRender {
 			g.setColor(m.getColor());
 			g.drawString(m.getMessage(), (int)m.getX() - Screen.xOffset  * Game.SCALE, (int)m.getY());
 		}
-	}
-	
+	 }
+
 	/*
 	|--------------------------------------------------------------------------
 	| Updates

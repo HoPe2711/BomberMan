@@ -30,7 +30,7 @@ public class Game extends Canvas {
 	public static final String TITLE = "Bomberman " + VERSION;
 	
 	//initial configs
-	private static final int BOMBRATE = 1;
+	private static final int BOMBRATE = 2;
 	private static final int BOMBRADIUS = 1;
 	private static final double PLAYERSPEED = 1.0;
 	

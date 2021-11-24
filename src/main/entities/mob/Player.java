@@ -44,7 +44,7 @@ public class Player extends Mob {
 	@Override
 	public void update() {
 		clearBombs();
-		if(_alive == false) {
+		if(!_alive) {
 			afterKill();
 			return;
 		}
@@ -86,10 +86,11 @@ public class Player extends Mob {
 			
 			int xt = Coordinates.pixelToTile(_x + _sprite.getSize() / 2);
 			int yt = Coordinates.pixelToTile( (_y + _sprite.getSize() / 2) - _sprite.getSize() ); //subtract half player height and minus 1 y position
-			
+			for (Bomb a: _bombs)
+				if (a.getX() == xt && a.getY() == yt) return;
 			placeBomb(xt,yt);
 			Game.addBombRate(-1);
-			
+
 			_timeBetweenPutBombs = 30;
 		}
 	}
@@ -126,7 +127,7 @@ public class Player extends Mob {
 		
 		_board.addLives(-1);
 
-		Message msg = new Message("-1 LIVE", getXMessage(), getYMessage(), 2, Color.white, 14);
+		Message msg = new Message("-1 LIVE", getXMessage(), getYMessage(), 2, Color.white, 50);
 		_board.addMessage(msg);
 	}
 	

@@ -25,14 +25,6 @@ public class Help extends JMenu {
 		instructions.addActionListener(new MenuActionListener(frame));
 		add(instructions);
 		
-		/*
-		 * Credits
-		 */
-		JMenuItem about = new JMenuItem("About");
-		about.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.CTRL_MASK));
-		about.addActionListener(new MenuActionListener(frame));
-		add(about);
-		
 	}
 	
 	class MenuActionListener implements ActionListener {
@@ -45,12 +37,10 @@ public class Help extends JMenu {
 		public void actionPerformed(ActionEvent e) {
 			  
 			  if(e.getActionCommand().equals("How to play")) {
-				  new InfoDialog(_frame, "How to Play", "Movement: W,A,S,D or UP,DOWN, RIGHT, LEFT\nPut Bombs: SPACE, X", JOptionPane.QUESTION_MESSAGE);
-			  }
-				  
-			  if(e.getActionCommand().equals("About")) {
-				  new InfoDialog(_frame, "About", "Version: " + Game.VERSION + "\n Author: Carlos Flor�ncio\n Website: www.carlosflorencio.com", JOptionPane.INFORMATION_MESSAGE);
-			  }
+					new InfoDialog(_frame, "How to Play",
+							"Movement: W,A,S,D or UP,DOWN, RIGHT, LEFT\nPut Bombs: SPACE, X",
+							JOptionPane.QUESTION_MESSAGE);
+				}
 			  
 		  }
 	}
