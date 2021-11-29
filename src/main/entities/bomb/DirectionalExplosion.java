@@ -76,7 +76,7 @@ public class DirectionalExplosion extends Entity {
             cur.collide(this);
           }
         }
-        ++radius;
+        //++radius;
       }
 
       if (!a.collide(this)) {
