@@ -1,8 +1,8 @@
 package main.entities.tile;
 
 
-import main.graphics.Sprite;
 import main.entities.Entity;
+import main.graphics.Sprite;
 
 public class GrassTile extends Tile {
 

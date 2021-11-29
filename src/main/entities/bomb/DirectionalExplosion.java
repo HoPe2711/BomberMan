@@ -1,5 +1,6 @@
 package main.entities.bomb;
 
+import java.util.Iterator;
 import main.Board;
 import main.entities.Entity;
 import main.entities.mob.Mob;
@@ -65,6 +66,16 @@ public class DirectionalExplosion extends Entity {
       Entity a = _board.getEntity(x, y, null);
 
       if (a instanceof Mob) {
+        Iterator<Mob> itr = _board._mobs.iterator();
+
+        Mob cur;
+        while (itr.hasNext()) {
+          cur = itr.next();
+
+          if (cur.getXTile() == x && cur.getYTile() == y) {
+            cur.collide(this);
+          }
+        }
         ++radius;
       }
 

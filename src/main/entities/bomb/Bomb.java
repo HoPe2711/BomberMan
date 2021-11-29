@@ -2,12 +2,12 @@ package main.entities.bomb;
 
 import main.Board;
 import main.Game;
-import main.graphics.Sprite;
 import main.entities.AnimatedEntitiy;
 import main.entities.Entity;
 import main.entities.mob.Mob;
 import main.entities.mob.Player;
 import main.graphics.Screen;
+import main.graphics.Sprite;
 import main.level.Coordinates;
 
 public class Bomb extends AnimatedEntitiy {

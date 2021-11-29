@@ -25,12 +25,12 @@ public class Game extends Canvas {
 							WIDTH = TILES_SIZE * (int)(31 / 2), //minus one to ajust the window,
 							HEIGHT = 13 * TILES_SIZE;
 
-	public static int SCALE = 5;
+	public static int SCALE = 3;
 	
 	public static final String TITLE = "Bomberman " + VERSION;
 	
 	//initial configs
-	private static final int BOMBRATE = 2;
+	private static final int BOMBRATE = 1;
 	private static final int BOMBRADIUS = 1;
 	private static final double PLAYERSPEED = 1.0;
 	
