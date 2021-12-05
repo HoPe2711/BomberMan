@@ -44,7 +44,7 @@ public class Board implements IRender {
 		_input = input;
 		_screen = screen;
 		
-		changeLevel(1); //start in level 1
+		changeLevel(5); //start in level 1
 	}
 	
 	/*
@@ -87,7 +87,6 @@ public class Board implements IRender {
 		
 		renderBombs(screen);
 		renderMobs(screen);
-		
 	}
 	
 	/*

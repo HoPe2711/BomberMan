@@ -1,5 +1,6 @@
 package main.gui;
 
+import java.awt.event.MouseAdapter;
 import main.Game;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
