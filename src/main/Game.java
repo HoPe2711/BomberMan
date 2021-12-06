@@ -25,7 +25,7 @@ public class Game extends Canvas {
 							WIDTH = TILES_SIZE * (int)(31 / 2), //minus one to ajust the window,
 							HEIGHT = 13 * TILES_SIZE;
 
-	public static int SCALE = 3;
+	public static int SCALE = 4;
 	
 	public static final String TITLE = "Bomberman " + VERSION;
 	
@@ -173,6 +173,11 @@ public class Game extends Canvas {
 	| Getters & Setters
 	|--------------------------------------------------------------------------
 	 */
+
+	public Frame get_frame() {
+		return _frame;
+	}
+
 	public static double getPlayerSpeed() {
 		return playerSpeed;
 	}

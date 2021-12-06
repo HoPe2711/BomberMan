@@ -1,17 +1,21 @@
 package main.gui;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import main.Game;
 import main.gui.GamePanel;
 import main.gui.MenuUI;
 
 public class MouseProcess extends MouseAdapter {
+
   private MenuUI menu;
   private GamePanel gamePanel;
   private Game game;
-  public static boolean running = false;
 
   public MouseProcess(MenuUI menu1) {
     menu = menu1;
@@ -19,15 +23,39 @@ public class MouseProcess extends MouseAdapter {
     game = gamePanel.getGame();
   }
 
-  public void mousePressed(MouseEvent e) {
-    if(e.getSource() == menu.getPlayLabel()) {
-      menu.getCardLayout().show(menu.getMenuContainer(), "GAME_PANEL");
-      running = true;
-//      game.start();
+  public void mouseEntered(MouseEvent e) {
+    if (e.getSource() == menu.getPlayLabel()) {
+      Robot robot = null;
+      try {
+        robot = new Robot();
+      } catch (AWTException ex) {
+        ex.printStackTrace();
+      }
+
+      robot.keyPress(KeyEvent.VK_CONTROL);
+      robot.keyPress(KeyEvent.VK_N);
+      robot.keyRelease(KeyEvent.VK_CONTROL);
+      robot.keyRelease(KeyEvent.VK_N);
     }
   }
 
-  public static boolean isRunning() {
-    return running;
+  public void mousePressed(MouseEvent e) {
+    if (e.getSource() == menu.getPlayLabel()) {
+      menu.getCardLayout().show(menu.getMenuContainer(), "GAME_PANEL");
+    }
+
+    if(e.getSource() == menu.getHowtoplayLabel()) {
+      menu.getCardLayout().show(menu.getMenuContainer(), "HTP_MOBS");
+    }
+
+    if (e.getSource() == menu.getExitLabel()) {
+      int n = JOptionPane.showConfirmDialog(menu.getMenuContainer(), "BAN CÓ MUỐN THOÁT?", "Exit",
+          JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+      if (n == 0) {
+//        menu.getFrame().dispose();
+        System.exit(0);
+      }
+    }
   }
+
 }

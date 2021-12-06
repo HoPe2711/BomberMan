@@ -16,6 +16,7 @@ import main.entities.tile.powerup.Powerup;
 import main.exceptions.LoadLevelException;
 import main.graphics.IRender;
 import main.graphics.Screen;
+import main.gui.Highscore;
 import main.input.Keyboard;
 import main.level.FileLevel;
 import main.level.Level;
@@ -27,6 +28,7 @@ public class Board implements IRender {
 	protected Game _game;
 	protected Keyboard _input;
 	protected Screen _screen;
+	protected Highscore highscore;
 	
 	public Entity[] _entities;
 	public List<Mob> _mobs = new ArrayList<Mob>();
@@ -44,7 +46,7 @@ public class Board implements IRender {
 		_input = input;
 		_screen = screen;
 		
-		changeLevel(5); //start in level 1
+		changeLevel(1); //start in level 1
 	}
 	
 	/*
@@ -167,6 +169,7 @@ public class Board implements IRender {
 	
 	public void endGame() {
 		_screenToShow = 1;
+		_game.get_frame().getHighscore().addPoint(_points);
 		_game.resetScreenDelay();
 		_game.pause();
 	}

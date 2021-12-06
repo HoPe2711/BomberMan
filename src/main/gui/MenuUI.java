@@ -12,19 +12,23 @@ public class MenuUI {
   private JPanel menuContainer;
   private JPanel menuPane;
   private JPanel gameinfoContainer;
+  private Howtoplay_Mobs howtoplay_mobsPane;
 
   private CardLayout cardLayout;
 
   private JLabel backgroundLabel;
   private JLabel playLabel;
   private JLabel highscoreLabel;
-  private JLabel instructionLabel;
+  private JLabel howtoplayLabel;
   private JLabel exitLabel;
 
   private InfoPanel infoPanel;
   private GamePanel gamePanel;
+
   private Frame _frame;
-  private Game _game;
+
+  private static final int xLabel = 125;
+  private static final int yLabel = 375;
 
   public MenuUI(Frame frame) {
     menuContainer = new JPanel();
@@ -33,6 +37,8 @@ public class MenuUI {
 
     menuPane = new JPanel();
     menuPane.setLayout(null);
+
+    howtoplay_mobsPane = new Howtoplay_Mobs();
 
     _frame = frame;
 
@@ -45,6 +51,7 @@ public class MenuUI {
     setMenu();
 
     menuContainer.add(gameinfoContainer, "GAME_PANEL");
+//    menuContainer.add(howtoplay_mobsPane, "HTP_MOBS");
 
     _frame.add(menuContainer);
 
@@ -53,18 +60,24 @@ public class MenuUI {
 
   public void setClick(MouseAdapter click){
     playLabel.addMouseListener(click);
-//    highscoreLabel.addMouseListener(click);
-//    instructionLabel.addMouseListener(click);
-//    exitLabel.addMouseListener(click);
+    highscoreLabel.addMouseListener(click);
+    howtoplayLabel.addMouseListener(click);
+    exitLabel.addMouseListener(click);
   }
 
   public void setMenu() {
-    backgroundLabel = setImageIcon(0,0,"G:\\Code\\OOP_BTL\\HangHo\\BomberMan\\res\\textures\\MenuBackground.png");
-    playLabel = setImageIcon(46,274,"G:\\Code\\OOP_BTL\\HangHo\\BomberMan\\res\\textures\\Play_Button.png");
+    backgroundLabel = setImageIcon(0,0,"res/textures/backgroundMenu.png");
+    playLabel = setImageIcon(xLabel,yLabel,"res/textures/Play_Button.png");
+    highscoreLabel = setImageIcon(xLabel, yLabel + 100, "res/textures/Highscore_Button.png");
+    howtoplayLabel = setImageIcon(xLabel, yLabel + 200, "res/textures/Howtoplay_Button.png");
+    exitLabel = setImageIcon(xLabel, yLabel + 300, "res/textures/Exit_Button.png");
 
     menuPane.add(playLabel);
+    menuPane.add(highscoreLabel);
+    menuPane.add(howtoplayLabel);
+    menuPane.add(exitLabel);
+
     menuPane.add(backgroundLabel);
-    menuPane.setBounds(0, 0, 720, 664);
     menuContainer.add(menuPane, "MENU_PANEL");
   }
 
@@ -98,10 +111,6 @@ public class MenuUI {
     return highscoreLabel;
   }
 
-  public JLabel getInstructionLabel() {
-    return instructionLabel;
-  }
-
   public JLabel getExitLabel() {
     return exitLabel;
   }
@@ -120,5 +129,13 @@ public class MenuUI {
 
   public JPanel getGameinfoContainer() {
     return gameinfoContainer;
+  }
+
+  public JLabel getHowtoplayLabel() {
+    return howtoplayLabel;
+  }
+
+  public Frame getFrame() {
+    return _frame;
   }
 }
