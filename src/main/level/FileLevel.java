@@ -1,5 +1,6 @@
 package main.level;
 
+import java.util.Objects;
 import main.Board;
 import main.Game;
 import main.entities.mob.Player;
@@ -37,9 +38,9 @@ public class FileLevel extends Level {
 	public void loadLevel(String path) throws LoadLevelException {
 		try {
 			URL absPath = FileLevel.class.getResource("/" + path);
-			
+
 			BufferedReader in = new BufferedReader(
-			        new InputStreamReader(absPath.openStream()));
+			        new InputStreamReader(Objects.requireNonNull(absPath).openStream()));
 
 			String data = in.readLine();
 			StringTokenizer tokens = new StringTokenizer(data);
@@ -72,7 +73,7 @@ public class FileLevel extends Level {
 	public void addLevelEntity(char c, int x, int y) {
 		int pos = x + y * getWidth();
 		
-		switch(c) { // TODO: minimize this method
+		switch(c) {
 			case '#': 
 				_board.addEntitie(pos, new WallTile(x, y, Sprite.wall));
 				break;
@@ -81,7 +82,7 @@ public class FileLevel extends Level {
 						new GrassTile(x ,y, Sprite.grass),
 						new BrickTile(x ,y, Sprite.brick));
 				
-				if(_board.isPowerupUsed(x, y, _level) == false) {
+				if(!_board.isPowerupUsed(x, y, _level)) {
 					layer.addBeforeTop(new PowerupBombs(x, y, _level, Sprite.powerup_bombs));
 				}
 				
@@ -92,7 +93,7 @@ public class FileLevel extends Level {
 						new GrassTile(x ,y, Sprite.grass), 
 						new BrickTile(x ,y, Sprite.brick));
 				
-				if(_board.isPowerupUsed(x, y, _level) == false) {
+				if(!_board.isPowerupUsed(x, y, _level)) {
 					layer.addBeforeTop(new PowerupSpeed(x, y, _level, Sprite.powerup_speed));
 				}
 				
@@ -103,7 +104,7 @@ public class FileLevel extends Level {
 						new GrassTile(x ,y, Sprite.grass), 
 						new BrickTile(x ,y, Sprite.brick));
 				
-				if(_board.isPowerupUsed(x, y, _level) == false) {
+				if(!_board.isPowerupUsed(x, y, _level)) {
 					layer.addBeforeTop(new PowerupFlames(x, y, _level, Sprite.powerup_flames));
 				}
 				
@@ -120,10 +121,10 @@ public class FileLevel extends Level {
 						new PortalTile(x ,y, _board, Sprite.portal),
 						new BrickTile(x ,y, Sprite.brick)) );
 				break;
-			case ' ': 
+			case ' ':
 				_board.addEntitie(pos, new GrassTile(x, y, Sprite.grass) );
 				break;
-			case 'p': 
+			case 'p':
 				_board.addMob( new Player(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board) );
 				Screen.setOffset(0, 0);
 				
@@ -150,7 +151,7 @@ public class FileLevel extends Level {
 				_board.addMob( new Kondoria(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
 				_board.addEntitie(pos, new GrassTile(x, y, Sprite.grass) );
 				break;
-			default: 
+			default:
 				_board.addEntitie(pos, new GrassTile(x, y, Sprite.grass) );
 				break;
 			}

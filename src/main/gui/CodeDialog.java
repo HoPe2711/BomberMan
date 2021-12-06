@@ -23,14 +23,14 @@ public class CodeDialog implements WindowListener, ActionListener {
 	public CodeDialog(Frame f) {
 		_frame = f;
 
-		_dialog = new JFrame("Enter a Valid Code");
+		_dialog = new JFrame("Enter a number");
 		final JButton button = new JButton("Load!");
 		button.addActionListener(this);
 
 		JPanel pane = new JPanel(new BorderLayout());
-		_code = new JTextField("code");
+		_code = new JTextField("Enter a number ...");
 
-		pane.add(new JLabel("Code: "), BorderLayout.WEST);
+		pane.add(new JLabel("Level: "), BorderLayout.WEST);
 		pane.add(_code, BorderLayout.CENTER);
 		pane.add(button, BorderLayout.PAGE_END);
 

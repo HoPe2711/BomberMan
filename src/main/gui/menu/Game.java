@@ -39,7 +39,7 @@ public class Game extends JMenu {
 		/*
 		 * Codes
 		 */
-		JMenuItem codes = new JMenuItem("Codes");
+		JMenuItem codes = new JMenuItem("Choose level");
 		codes.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
 		codes.addActionListener(new MenuActionListener(frame));
 		add(codes);
@@ -62,7 +62,7 @@ public class Game extends JMenu {
 				  new InfoDialog(_frame, "Top Scores", "If i had more time..", JOptionPane.INFORMATION_MESSAGE);
 			  }
 			  
-			  if(e.getActionCommand().equals("Codes")) {
+			  if(e.getActionCommand().equals("Choose level")) {
 				  new CodeDialog(_frame);
 			  }
 

@@ -52,7 +52,6 @@ public class MouseProcess extends MouseAdapter {
       int n = JOptionPane.showConfirmDialog(menu.getMenuContainer(), "BAN CÓ MUỐN THOÁT?", "Exit",
           JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
       if (n == 0) {
-//        menu.getFrame().dispose();
         System.exit(0);
       }
     }

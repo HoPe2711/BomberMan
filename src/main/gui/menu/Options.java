@@ -14,7 +14,7 @@ import javax.swing.KeyStroke;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class Options extends JMenu implements ChangeListener {
+public class Options extends JMenu{
 
 	Frame _frame;
 	
@@ -33,38 +33,38 @@ public class Options extends JMenu implements ChangeListener {
 		resume.addActionListener(new MenuActionListener(frame));
 		add(resume);
 		
-		addSeparator();
+//		addSeparator();
 		
-		add(new JLabel("Size: "));
-		
-		JSlider sizeRange = new JSlider(JSlider.HORIZONTAL,
-                1, 5, 3);
+//		add(new JLabel("Size: "));
+//
+//		JSlider sizeRange = new JSlider(JSlider.HORIZONTAL,
+//                1, 5, 3);
 		
 		//Turn on labels at major tick marks.
-		sizeRange.setMajorTickSpacing(2);
-		sizeRange.setMinorTickSpacing(1);
-		sizeRange.setPaintTicks(true);
-		sizeRange.setPaintLabels(true);
-		sizeRange.addChangeListener(this);
-		
-		add(sizeRange);
+//		sizeRange.setMajorTickSpacing(2);
+//		sizeRange.setMinorTickSpacing(1);
+//		sizeRange.setPaintTicks(true);
+//		sizeRange.setPaintLabels(true);
+//		sizeRange.addChangeListener(this);
+//
+//		add(sizeRange);
 		
 	}
 	
-	@Override
-	public void stateChanged(ChangeEvent e) {
-		JSlider source = (JSlider)e.getSource();
-	    if (!source.getValueIsAdjusting()) {
-	        int fps = (int)source.getValue();
-	        
-	        Game.SCALE = fps;
-	        System.out.println( Game.SCALE);
-	        
-	        _frame._gamepane.changeSize();
-			  _frame.revalidate();
-			  _frame.pack();
-	    }
-	}
+//	@Override
+//	public void stateChanged(ChangeEvent e) {
+//		JSlider source = (JSlider)e.getSource();
+//	    if (!source.getValueIsAdjusting()) {
+//	        int fps = (int)source.getValue();
+//
+//	        Game.SCALE = fps;
+//	        System.out.println( Game.SCALE);
+//
+//	        _frame._gamepane.changeSize();
+//			  _frame.revalidate();
+//			  _frame.pack();
+//	    }
+//	}
 	
 	class MenuActionListener implements ActionListener {
 		public Frame _frame;

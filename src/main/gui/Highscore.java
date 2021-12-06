@@ -1,5 +1,8 @@
 package main.gui;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -17,7 +20,17 @@ public class Highscore {
 
   public Highscore() {
     highscoreList = new TreeMap<>();
+    Robot robot = null;
+    try {
+      robot = new Robot();
+    } catch (AWTException ex) {
+      ex.printStackTrace();
+    }
 
+    robot.keyPress(KeyEvent.VK_CONTROL);
+    robot.keyPress(KeyEvent.VK_P);
+    robot.keyRelease(KeyEvent.VK_CONTROL);
+    robot.keyRelease(KeyEvent.VK_P);
     FileInputStream fileInputStream = null;
     BufferedReader bufferedReader = null;
     // file data -> Treemap

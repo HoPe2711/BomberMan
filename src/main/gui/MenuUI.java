@@ -38,12 +38,11 @@ public class MenuUI {
     menuPane = new JPanel();
     menuPane.setLayout(null);
 
-    howtoplay_mobsPane = new Howtoplay_Mobs();
-
     _frame = frame;
 
     gamePanel = new GamePanel(_frame);
     infoPanel = new InfoPanel(gamePanel.getGame());
+    howtoplay_mobsPane = new Howtoplay_Mobs(_frame);
     gameinfoContainer = new JPanel(new BorderLayout());
     gameinfoContainer.add(infoPanel, BorderLayout.PAGE_START);
     gameinfoContainer.add(gamePanel, BorderLayout.PAGE_END);
@@ -51,7 +50,7 @@ public class MenuUI {
     setMenu();
 
     menuContainer.add(gameinfoContainer, "GAME_PANEL");
-//    menuContainer.add(howtoplay_mobsPane, "HTP_MOBS");
+    menuContainer.add(howtoplay_mobsPane, "HTP_MOBS");
 
     _frame.add(menuContainer);
 

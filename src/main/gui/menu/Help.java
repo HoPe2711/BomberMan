@@ -15,12 +15,12 @@ import javax.swing.KeyStroke;
 public class Help extends JMenu {
 
 	public Help(Frame frame)  {
-		super("Help");
+		super("About");
 		
 		/*
 		 * How to play
 		 */
-		JMenuItem instructions = new JMenuItem("How to play");
+		JMenuItem instructions = new JMenuItem("Author");
 		instructions.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, ActionEvent.CTRL_MASK));
 		instructions.addActionListener(new MenuActionListener(frame));
 		add(instructions);
@@ -35,10 +35,10 @@ public class Help extends JMenu {
 		
 		  @Override
 		public void actionPerformed(ActionEvent e) {
-			  
-			  if(e.getActionCommand().equals("How to play")) {
-					new InfoDialog(_frame, "How to Play",
-							"Movement: W,A,S,D or UP,DOWN, RIGHT, LEFT\nPut Bombs: SPACE, X",
+
+			  if(e.getActionCommand().equals("Author")) {
+					new InfoDialog(_frame, "Introduction",
+							"<html><font face='Calibri' size='6' color='black'>Nguyễn Thái Bình<br>Github: https://github.com/HoPe2711<br><br>Nguyễn Tấn Minh<br>Github: https://github.com/20020081",
 							JOptionPane.QUESTION_MESSAGE);
 				}
 			  

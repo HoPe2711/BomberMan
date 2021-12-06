@@ -1,6 +1,5 @@
 package main.gui;
 
-import java.awt.event.MouseAdapter;
 import main.Game;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -16,7 +15,6 @@ public class GamePanel extends JPanel {
 	public GamePanel(Frame frame) {
 		setLayout(new BorderLayout());
 		setPreferredSize(new Dimension(Game.WIDTH * Game.SCALE, Game.HEIGHT * Game.SCALE));
-		System.out.println(Game.WIDTH * Game.SCALE + " " + Game.HEIGHT * Game.SCALE);
 		try {
 			_game = new Game(frame);
 			
@@ -26,7 +24,6 @@ public class GamePanel extends JPanel {
 			
 		} catch (BombermanException e) {
 			e.printStackTrace();
-			//TODO: so we got a error hum..
 			System.exit(0);
 		}
 		setVisible(true);
