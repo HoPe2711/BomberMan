@@ -8,6 +8,7 @@ import main.entities.mob.Mob;
 import main.entities.mob.Player;
 import main.graphics.Screen;
 import main.graphics.Sprite;
+import main.gui.GameSound;
 import main.level.Coordinates;
 
 public class Bomb extends AnimatedEntitiy {
@@ -94,6 +95,7 @@ public class Bomb extends AnimatedEntitiy {
       _explosions[i] = new DirectionalExplosion((int) _x, (int) _y, i, Game.getBombRadius(),
           _board);
     }
+    GameSound.getInstance().play(GameSound.BOMBEXPLOSED);
   }
 
   public Explosion explosionAt(int x, int y) {

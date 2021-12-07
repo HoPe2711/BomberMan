@@ -25,6 +25,7 @@ public class MouseProcess extends MouseAdapter {
 
   public void mouseEntered(MouseEvent e) {
     if (e.getSource() == menu.getPlayLabel()) {
+//      GameSound.getInstance().getAudio(GameSound.CLICK).start();
       Robot robot = null;
       try {
         robot = new Robot();
@@ -37,36 +38,62 @@ public class MouseProcess extends MouseAdapter {
       robot.keyRelease(KeyEvent.VK_CONTROL);
       robot.keyRelease(KeyEvent.VK_N);
     }
+
+//    if(e.getSource() == menu.getContinueLabel()) {
+//      GameSound.getInstance().getAudio(GameSound.CLICK).start();
+//    }
+//    if(e.getSource() == menu.getHowtoplay_mobsLabel()) {
+//      GameSound.getInstance().getAudio(GameSound.CLICK).start();
+//    }
+//    if(e.getSource() == menu.getHowtoplay_mobsPane().getNextButton())  {
+//      GameSound.getInstance().getAudio(GameSound.CLICK).start();
+//    }
+//    if(e.getSource() == menu.getHowtoplay_mobsPane().getBackButton()) {
+//      GameSound.getInstance().getAudio(GameSound.CLICK).start();
+//    }
+//    if(e.getSource() == menu.getHowtoplay_objectsPane().getBackButton()) {
+//      GameSound.getInstance().getAudio(GameSound.CLICK).start();
+//    }
+//    if (e.getSource() == menu.getExitLabel()) {
+//      GameSound.getInstance().getAudio(GameSound.CLICK).start();
+//    }
   }
 
   public void mousePressed(MouseEvent e) {
     if (e.getSource() == menu.getPlayLabel()) {
       menu.getMenuPane().setVisible(false);
+      GameSound.getInstance().play(GameSound.CLICK);
       menu.getCardLayout().show(menu.getMenuContainer(), "GAME_PANEL");
     }
 
     if(e.getSource() == menu.getContinueLabel()) {
       menu.getMenuPane().setVisible(false);
+      GameSound.getInstance().play(GameSound.CLICK);
       menu.getCardLayout().show(menu.getMenuContainer(), "GAME_PANEL");
     }
 
     if(e.getSource() == menu.getHowtoplay_mobsLabel()) {
+      GameSound.getInstance().play(GameSound.CLICK);
       menu.getCardLayout().show(menu.getMenuContainer(), "HTP_MOBS");
     }
 
     if(e.getSource() == menu.getHowtoplay_mobsPane().getNextButton())  {
+      GameSound.getInstance().play(GameSound.CLICK);
       menu.getCardLayout().show(menu.getMenuContainer(), "HTP_OBJECTS");
     }
 
     if(e.getSource() == menu.getHowtoplay_mobsPane().getBackButton()) {
+      GameSound.getInstance().play(GameSound.CLICK);
       menu.getCardLayout().show(menu.getMenuContainer(), "MENU_PANEL");
     }
 
     if(e.getSource() == menu.getHowtoplay_objectsPane().getBackButton()) {
+      GameSound.getInstance().play(GameSound.CLICK);
       menu.getCardLayout().show(menu.getMenuContainer(), "HTP_MOBS");
     }
 
     if (e.getSource() == menu.getExitLabel()) {
+      GameSound.getInstance().play(GameSound.CLICK);
       int n = JOptionPane.showConfirmDialog(menu.getMenuContainer(), "BAN CÓ MUỐN THOÁT?", "Exit",
           JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
       if (n == 0) {

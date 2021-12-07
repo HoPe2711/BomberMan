@@ -2,6 +2,7 @@ package main.gui.menu;
 
 import main.gui.CodeDialog;
 import main.gui.Frame;
+import main.gui.GameSound;
 import main.gui.InfoDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -62,7 +63,9 @@ public class Game extends JMenu {
 			  if(e.getActionCommand().equals("Back to menu")) {
 					_frame.pauseGame();
 					MenuUI menu = _frame.getMenuUI();
+					GameSound.getInstance().stop();
 					menu.getCardLayout().show(menu.getMenuContainer(), "MENU_PANEL");
+					GameSound.getInstance().play(GameSound.BACKGROUND);
 			  }
 			  
 			  if(e.getActionCommand().equals("Choose level")) {

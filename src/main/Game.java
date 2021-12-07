@@ -83,7 +83,7 @@ public class Game extends Canvas {
 		
 		screen.clear();
 		
-		_board.render(screen);
+		_board. render(screen);
 		
 		for (int i = 0; i < pixels.length; i++) { //create the image to be rendered
 			pixels[i] = screen._pixels[i];

@@ -11,6 +11,7 @@ import main.entities.mob.Player;
 import main.entities.mob.enemy.ai.AI;
 import main.graphics.Screen;
 import main.graphics.Sprite;
+import main.gui.GameSound;
 import main.level.Coordinates;
 
 public abstract class Enemy extends Mob {
@@ -168,6 +169,8 @@ public abstract class Enemy extends Mob {
 
     Message msg = new Message("   +" + _points, getXMessage(), getYMessage(), 1, Color.white, 50);
     _board.addMessage(msg);
+
+    GameSound.getInstance().play(GameSound.DEATH);
   }
 
 

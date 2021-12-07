@@ -59,6 +59,9 @@ public class MenuUI {
 
     _frame.add(menuContainer);
 
+    GameSound.getInstance().stop();
+    GameSound.getInstance().play(GameSound.BACKGROUND);
+
     setClick(new MouseProcess(this));
   }
 

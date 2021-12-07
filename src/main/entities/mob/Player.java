@@ -14,6 +14,7 @@ import main.entities.mob.enemy.Enemy;
 import main.entities.tile.powerup.Powerup;
 import main.graphics.Screen;
 import main.graphics.Sprite;
+import main.gui.GameSound;
 import main.input.Keyboard;
 import main.level.Coordinates;
 
@@ -93,6 +94,7 @@ public class Player extends Mob {
 
   protected void placeBomb(int x, int y) {
     Bomb b = new Bomb(x, y, _board);
+    GameSound.getInstance().play(GameSound.BOMBPLACED);
     _board.addBomb(b);
   }
 
@@ -122,6 +124,8 @@ public class Player extends Mob {
 
     Message msg = new Message("   -1 LIVE", getXMessage(), getYMessage(), 1, Color.white, 50);
     _board.addMessage(msg);
+
+    GameSound.getInstance().play(GameSound.DEATH);
   }
 
   @Override
@@ -206,6 +210,7 @@ public class Player extends Mob {
     if (canMove(xa, 0)) {
       _x += xa;
     }
+
   }
 
   @Override
@@ -228,9 +233,12 @@ public class Player extends Mob {
       return;
     }
 
+    GameSound.getInstance().play(GameSound.GETITEM);
+
     _powerups.add(p);
 
     p.setValues();
+
   }
 
   private void chooseSprite() {
