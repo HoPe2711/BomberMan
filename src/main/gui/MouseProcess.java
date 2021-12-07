@@ -72,6 +72,12 @@ public class MouseProcess extends MouseAdapter {
       menu.getCardLayout().show(menu.getMenuContainer(), "GAME_PANEL");
     }
 
+    if(e.getSource() == menu.getHighscoreLabel()) {
+      GameSound.getInstance().play(GameSound.CLICK);
+      menu.getHighscorePanel().updateScore(menu.get_frame().getHighscore().getUserHighscore());
+      menu.getCardLayout().show(menu.getMenuContainer(), "HS_PANEL");
+    }
+
     if(e.getSource() == menu.getHowtoplay_mobsLabel()) {
       GameSound.getInstance().play(GameSound.CLICK);
       menu.getCardLayout().show(menu.getMenuContainer(), "HTP_MOBS");
@@ -84,6 +90,12 @@ public class MouseProcess extends MouseAdapter {
 
     if(e.getSource() == menu.getHowtoplay_mobsPane().getBackButton()) {
       GameSound.getInstance().play(GameSound.CLICK);
+      menu.getCardLayout().show(menu.getMenuContainer(), "MENU_PANEL");
+    }
+
+    if(e.getSource() == menu.getHighscorePanel().getBackButton()) {
+      GameSound.getInstance().play(GameSound.CLICK);
+      System.out.println(1);
       menu.getCardLayout().show(menu.getMenuContainer(), "MENU_PANEL");
     }
 

@@ -162,6 +162,7 @@ public class Player extends Mob {
 
     if (xa != 0 || ya != 0) {
       move(xa * Game.getPlayerSpeed(), ya * Game.getPlayerSpeed());
+
       _moving = true;
     } else {
       _moving = false;

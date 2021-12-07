@@ -15,6 +15,7 @@ public class MenuUI {
   private JPanel gameinfoContainer;
   private Howtoplay_Mobs howtoplay_mobsPane;
   private Howtoplay_Objects howtoplay_objectsPane;
+  private HighscorePanel highscorePanel;
 
   private CardLayout cardLayout;
 
@@ -47,6 +48,7 @@ public class MenuUI {
     infoPanel = new InfoPanel(gamePanel.getGame());
     howtoplay_mobsPane = new Howtoplay_Mobs();
     howtoplay_objectsPane = new Howtoplay_Objects();
+    highscorePanel = new HighscorePanel();
     gameinfoContainer = new JPanel(new BorderLayout());
     gameinfoContainer.add(infoPanel, BorderLayout.PAGE_START);
     gameinfoContainer.add(gamePanel, BorderLayout.PAGE_END);
@@ -56,6 +58,7 @@ public class MenuUI {
     menuContainer.add(gameinfoContainer, "GAME_PANEL");
     menuContainer.add(howtoplay_mobsPane, "HTP_MOBS");
     menuContainer.add(howtoplay_objectsPane, "HTP_OBJECTS");
+    menuContainer.add(highscorePanel, "HS_PANEL");
 
     _frame.add(menuContainer);
 
@@ -75,6 +78,7 @@ public class MenuUI {
     howtoplay_mobsPane.getNextButton().addMouseListener(click);
     howtoplay_mobsPane.getBackButton().addMouseListener(click);
     howtoplay_objectsPane.getBackButton().addMouseListener(click);
+    highscorePanel.getBackButton().addMouseListener(click);
   }
 
   public void setMenu() {
@@ -105,6 +109,10 @@ public class MenuUI {
     return jLabel;
   }
 
+  public Frame get_frame() {
+    return _frame;
+  }
+
   public JPanel getMenuContainer() {
     return menuContainer;
   }
@@ -115,6 +123,10 @@ public class MenuUI {
 
   public JLabel getBackgroundLabel() {
     return backgroundLabel;
+  }
+
+  public HighscorePanel getHighscorePanel() {
+    return highscorePanel;
   }
 
   public JLabel getPlayLabel() {

@@ -16,6 +16,7 @@ import main.entities.tile.powerup.Powerup;
 import main.exceptions.LoadLevelException;
 import main.graphics.IRender;
 import main.graphics.Screen;
+import main.gui.GameSound;
 import main.gui.Highscore;
 import main.input.Keyboard;
 import main.level.FileLevel;
@@ -110,7 +111,7 @@ public class Board implements IRender {
 		_game.playerSpeed = 1.0;
 		_game.bombRadius = 1;
 		_game.bombRate = 1;
-		
+		Game.bomMax = _game.bombRate;
 	}
 
 	public void restartLevel() {
@@ -129,7 +130,7 @@ public class Board implements IRender {
 		_mobs.clear();
 		_bombs.clear();
 		_messages.clear();
-		
+		Game.addBombRate(Game.bomMax - Game.bombRate);
 		try {
 			_level = new FileLevel("levels/Level" + level + ".txt", this);
 			_entities = new Entity[_level.getHeight() * _level.getWidth()];
@@ -170,6 +171,8 @@ public class Board implements IRender {
 	public void endGame() {
 		_screenToShow = 1;
 		_game.get_frame().getHighscore().addPoint(_points);
+		if (_points>0) GameSound.getInstance().play(GameSound.WIN);
+		else GameSound.getInstance().play(GameSound.LOSE);
 		_game.resetScreenDelay();
 		_game.pause();
 	}

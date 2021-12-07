@@ -36,13 +36,14 @@ public class Game extends Canvas {
 	
 	public static final int TIME = 200;
 	public static final int POINTS = 0;
-	public static final int LIVES = 3;
+	public static final int LIVES = 1;
 	
 	protected static int SCREENDELAY = 3;
 	
 	
 	//can be modified with bonus
 	protected static int bombRate = BOMBRATE;
+	protected static int bomMax = bombRate;
 	protected static int bombRadius = BOMBRADIUS;
 	protected static double playerSpeed = PLAYERSPEED;
 	
@@ -200,6 +201,7 @@ public class Game extends Canvas {
 	
 	public static void addBombRate(int i) {
 		bombRate += i;
+		bomMax = Math.max(bomMax,bombRate);
 	}
 	
 	//screen delay

@@ -82,7 +82,6 @@ public class Highscore {
     highscoreList.put(name, point);
   }
 
-
   // Treemap -> file data
   public void savePoint() {
     try {
@@ -98,5 +97,9 @@ public class Highscore {
     } catch (Exception e) {
       e.printStackTrace();
     }
+  }
+
+  public TreeMap<String, Integer> getUserHighscore(){
+    return highscoreList;
   }
 }

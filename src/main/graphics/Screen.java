@@ -9,6 +9,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 
 import main.entities.Entity;
+import main.gui.GameSound;
 
 public class Screen {
 	protected int _width, _height;
@@ -93,22 +94,26 @@ public class Screen {
 	public void drawEndGame(Graphics g, int points, String code) {
 		g.setColor(Color.black);
 		g.fillRect(0, 0, getRealWidth(), getRealHeight());
-		
 		Font font = new Font("Arial", Font.PLAIN, 20 * Game.SCALE);
 		g.setFont(font);
 		g.setColor(Color.white);
-		drawCenteredString("GAME OVER", getRealWidth(), getRealHeight(), g);
+		if (points == 0) {
+			drawCenteredString("GAME OVER!", getRealWidth(), getRealHeight(), g);
+		}
+		else {
+			drawCenteredString("YOU WIN!", getRealWidth(), getRealHeight(), g);
+			font = new Font("Arial", Font.PLAIN, 10 * Game.SCALE);
+			g.setFont(font);
+			g.setColor(Color.yellow);
+			drawCenteredString("SCORE: " + points, getRealWidth(), getRealHeight() + (Game.TILES_SIZE * 2) * Game.SCALE, g);
+		}
+
 		
-		font = new Font("Arial", Font.PLAIN, 10 * Game.SCALE);
-		g.setFont(font);
-		g.setColor(Color.yellow);
-		drawCenteredString("POINTS: " + points, getRealWidth(), getRealHeight() + (Game.TILES_SIZE * 2) * Game.SCALE, g);
 		
-		
-		font = new Font("Arial", Font.PLAIN, 10 * Game.SCALE);
-		g.setFont(font);
-		g.setColor(Color.GRAY);
-		drawCenteredString(code, getRealWidth(), getRealHeight() * 2  - (Game.TILES_SIZE * 2) * Game.SCALE, g);
+//		font = new Font("Arial", Font.PLAIN, 10 * Game.SCALE);
+//		g.setFont(font);
+//		g.setColor(Color.GRAY);
+//		drawCenteredString(code, getRealWidth(), getRealHeight() * 2  - (Game.TILES_SIZE * 2) * Game.SCALE, g);
 	}
 
 	public void drawChangeLevel(Graphics g, int level) {
