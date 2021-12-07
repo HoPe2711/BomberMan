@@ -41,6 +41,7 @@ public class MouseProcess extends MouseAdapter {
 
   public void mousePressed(MouseEvent e) {
     if (e.getSource() == menu.getPlayLabel()) {
+      menu.getMenuPane().setVisible(false);
       menu.getCardLayout().show(menu.getMenuContainer(), "GAME_PANEL");
     }
 

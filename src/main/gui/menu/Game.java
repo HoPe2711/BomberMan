@@ -11,6 +11,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
+import main.gui.MenuUI;
 
 public class Game extends JMenu {
 
@@ -31,8 +32,8 @@ public class Game extends JMenu {
 		/*
 		 * Scores
 		 */
-		JMenuItem scores = new JMenuItem("Top Scores");
-		scores.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T, ActionEvent.CTRL_MASK));
+		JMenuItem scores = new JMenuItem("Back to menu");
+		scores.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_M, ActionEvent.CTRL_MASK));
 		scores.addActionListener(new MenuActionListener(frame));
 		add(scores);
 		
@@ -58,8 +59,10 @@ public class Game extends JMenu {
 				  _frame.newGame();
 			  }
 			  
-			  if(e.getActionCommand().equals("Top Scores")) {
-				  new InfoDialog(_frame, "Top Scores", "If i had more time..", JOptionPane.INFORMATION_MESSAGE);
+			  if(e.getActionCommand().equals("Back to menu")) {
+					_frame.pauseGame();
+					MenuUI menu = _frame.getMenuUI();
+					menu.getCardLayout().show(menu.getMenuContainer(), "MENU_PANEL");
 			  }
 			  
 			  if(e.getActionCommand().equals("Choose level")) {

@@ -97,6 +97,11 @@ public class Frame extends JFrame {
     _game.getBoard().changeLevelByCode(str);
   }
 
+  public MenuUI getMenuUI() {
+
+    return menuUI;
+  }
+
   public Highscore getHighscore() {
     return highscore;
   }
