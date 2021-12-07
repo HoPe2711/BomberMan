@@ -1,5 +1,6 @@
 package main.entities.mob.enemy.ai;
 
+import java.util.ArrayList;
 import main.Board;
 import main.entities.Entity;
 import main.entities.LayeredEntity;
@@ -12,8 +13,8 @@ public class AIHigh extends AI {
   Player _player;
   Enemy _e;
   Board _board;
-  private final int[] dx = {0, 1, 0, -1};
-  private final int[] dy = {1, 0, -1, 0};
+  private final int[] dx = {-1, 0, 1, 0};
+  private final int[] dy = {0, 1, 0, -1};
 
   public AIHigh(Player player, Enemy e, Board board) {
     _player = player;
@@ -28,6 +29,9 @@ public class AIHigh extends AI {
     int[][] a = new int[30][30];
     for (int i = 1; i <= m; i++) {
       for (int j = 1; j <= n; j++) {
+        if (a[i][j] == 1) {
+          continue;
+        }
         Entity tmp = _board.getEntityAt(j, i);
         if (tmp instanceof GrassTile) {
           a[i][j] = 0;
@@ -40,8 +44,17 @@ public class AIHigh extends AI {
         } else {
           a[i][j] = 1;
         }
-        tmp = _board.getBombAt(j,i);
-        if (tmp != null) a[i][j] = 1;
+        tmp = _board.getBombAt(j, i);
+        if (tmp != null) {
+          a[i][j] = 1;
+          for (int t = 0; t < 4; t++) {
+            int u = i + dx[t];
+            int v = j + dy[t];
+            if (u >= 1 && v >= 1 && u <= m && v <= n) {
+              a[u][v] = 1;
+            }
+          }
+        }
       }
     }
 
@@ -85,7 +98,20 @@ public class AIHigh extends AI {
     }
     if (dd[_player.getYTile()][_player.getXTile()] == 1000000
         || dd[_player.getYTile()][_player.getXTile()] == 0) {
-      return random.nextInt(4);
+      int x = _e.getYTile();
+      int y = _e.getXTile();
+      ArrayList<Integer> sel = new ArrayList<>();
+      for (int i = 0; i < 4; i++) {
+        int u = x + dx[i];
+        int v = y + dy[i];
+        if (a[u][v] == 0) {
+          sel.add(i);
+        }
+      }
+      if (sel.size() == 0) {
+        return random.nextInt(4);
+      }
+      return sel.get(random.nextInt(sel.size()));
     }
 
     int i = _player.getYTile();

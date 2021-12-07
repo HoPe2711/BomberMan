@@ -45,11 +45,9 @@ public class MouseProcess extends MouseAdapter {
       menu.getCardLayout().show(menu.getMenuContainer(), "GAME_PANEL");
     }
 
-    /**
-     * CON HANG A BINH
-     */
     if(e.getSource() == menu.getContinueLabel()) {
-      // your code goes here
+      menu.getMenuPane().setVisible(false);
+      menu.getCardLayout().show(menu.getMenuContainer(), "GAME_PANEL");
     }
 
     if(e.getSource() == menu.getHowtoplay_mobsLabel()) {

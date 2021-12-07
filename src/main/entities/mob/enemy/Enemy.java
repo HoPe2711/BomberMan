@@ -20,8 +20,8 @@ public abstract class Enemy extends Mob {
   protected double _speed;
   protected AI _ai;
 
-  protected final double MAX_STEPS;
-  protected final double rest;
+  protected double MAX_STEPS;
+  protected double rest;
   protected double _steps;
 
   protected int _finalAnimation = 30;
@@ -170,6 +170,14 @@ public abstract class Enemy extends Mob {
     _board.addMessage(msg);
   }
 
+
+  public void set_speed(double speed) {
+    _speed = speed;
+
+    MAX_STEPS = Game.TILES_SIZE / _speed;
+    rest = (MAX_STEPS - (int) MAX_STEPS) / MAX_STEPS;
+    _steps = MAX_STEPS;
+  }
 
   @Override
   protected void afterKill() {

@@ -1,7 +1,9 @@
 package main.entities.mob.enemy.ai;
 
+import main.Game;
 import main.entities.mob.Player;
 import main.entities.mob.enemy.Enemy;
+import main.entities.mob.enemy.Oneal;
 
 public class AIMedium extends AI {
 
@@ -15,7 +17,10 @@ public class AIMedium extends AI {
 
   @Override
   public int calculateDirection() {
-
+    if (_e instanceof Oneal){
+      double speed = (random.nextInt(3)+2)/4.0;
+      _e.set_speed(Game.getPlayerSpeed()*speed);
+    }
     if (_player == null) {
       return random.nextInt(4);
     }
@@ -39,7 +44,6 @@ public class AIMedium extends AI {
         return calculateRowDirection();
       }
     }
-
   }
 
   protected int calculateColDirection() {

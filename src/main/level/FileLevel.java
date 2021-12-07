@@ -130,7 +130,7 @@ public class FileLevel extends Level {
 				
 				_board.addEntitie(pos, new GrassTile(x, y, Sprite.grass) );
 				break;
-			//Enemies
+
 			case '1':
 				_board.addMob( new Balloom(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
 				_board.addEntitie(pos, new GrassTile(x, y, Sprite.grass) );
