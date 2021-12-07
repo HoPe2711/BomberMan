@@ -18,6 +18,7 @@ public class MenuUI {
 
   private JLabel backgroundLabel;
   private JLabel playLabel;
+  private JLabel continueLabel;
   private JLabel highscoreLabel;
   private JLabel howtoplayLabel;
   private JLabel exitLabel;
@@ -27,8 +28,8 @@ public class MenuUI {
 
   private Frame _frame;
 
-  private static final int xLabel = 125;
-  private static final int yLabel = 375;
+  private static final int xLabel = 140;
+  private static final int yLabel = 300;
 
   public MenuUI(Frame frame) {
     menuContainer = new JPanel();
@@ -67,11 +68,13 @@ public class MenuUI {
   public void setMenu() {
     backgroundLabel = setImageIcon(0,0,"res/textures/backgroundMenu.png");
     playLabel = setImageIcon(xLabel,yLabel,"res/textures/Play_Button.png");
-    highscoreLabel = setImageIcon(xLabel, yLabel + 100, "res/textures/Highscore_Button.png");
-    howtoplayLabel = setImageIcon(xLabel, yLabel + 200, "res/textures/Howtoplay_Button.png");
-    exitLabel = setImageIcon(xLabel, yLabel + 300, "res/textures/Exit_Button.png");
+    continueLabel = setImageIcon(xLabel, yLabel + 100, "res/textures/Continue_Button.png");
+    highscoreLabel = setImageIcon(xLabel, yLabel + 200, "res/textures/Highscore_Button.png");
+    howtoplayLabel = setImageIcon(xLabel, yLabel + 300, "res/textures/Howtoplay_Button.png");
+    exitLabel = setImageIcon(xLabel, yLabel + 400, "res/textures/Exit_Button.png");
 
     menuPane.add(playLabel);
+    menuPane.add(continueLabel);
     menuPane.add(highscoreLabel);
     menuPane.add(howtoplayLabel);
     menuPane.add(exitLabel);
