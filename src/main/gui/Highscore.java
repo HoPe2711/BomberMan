@@ -62,10 +62,11 @@ public class Highscore {
           public int compare(K k1, K k2) {
             int compare =
                 map.get(k1).compareTo(map.get(k2));
-            if (compare == 0)
+            if (compare == 0) {
               return 1;
-            else
+            } else {
               return -compare;
+            }
           }
         };
 
@@ -79,14 +80,11 @@ public class Highscore {
     String name = "test"; // player name when game over
 
     highscoreList.put(name, point);
-//    System.out.println(getHighscoreList());
   }
 
 
   // Treemap -> file data
   public void savePoint() {
-//    highscoreList.put("Duc", 20000);
-
     try {
       BufferedWriter writer = new BufferedWriter(new FileWriter(file));
       for (String name : highscoreList.keySet()) {

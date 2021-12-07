@@ -9,10 +9,12 @@ import javax.swing.JPanel;
 import main.Game;
 
 public class MenuUI {
+
   private JPanel menuContainer;
   private JPanel menuPane;
   private JPanel gameinfoContainer;
   private Howtoplay_Mobs howtoplay_mobsPane;
+  private Howtoplay_Objects howtoplay_objectsPane;
 
   private CardLayout cardLayout;
 
@@ -20,7 +22,7 @@ public class MenuUI {
   private JLabel playLabel;
   private JLabel continueLabel;
   private JLabel highscoreLabel;
-  private JLabel howtoplayLabel;
+  private JLabel howtoplay_mobsLabel;
   private JLabel exitLabel;
 
   private InfoPanel infoPanel;
@@ -43,7 +45,8 @@ public class MenuUI {
 
     gamePanel = new GamePanel(_frame);
     infoPanel = new InfoPanel(gamePanel.getGame());
-    howtoplay_mobsPane = new Howtoplay_Mobs(_frame);
+    howtoplay_mobsPane = new Howtoplay_Mobs();
+    howtoplay_objectsPane = new Howtoplay_Objects();
     gameinfoContainer = new JPanel(new BorderLayout());
     gameinfoContainer.add(infoPanel, BorderLayout.PAGE_START);
     gameinfoContainer.add(gamePanel, BorderLayout.PAGE_END);
@@ -52,43 +55,49 @@ public class MenuUI {
 
     menuContainer.add(gameinfoContainer, "GAME_PANEL");
     menuContainer.add(howtoplay_mobsPane, "HTP_MOBS");
+    menuContainer.add(howtoplay_objectsPane, "HTP_OBJECTS");
 
     _frame.add(menuContainer);
 
     setClick(new MouseProcess(this));
   }
 
-  public void setClick(MouseAdapter click){
+  public void setClick(MouseAdapter click) {
     playLabel.addMouseListener(click);
+    continueLabel.addMouseListener(click);
     highscoreLabel.addMouseListener(click);
-    howtoplayLabel.addMouseListener(click);
+    howtoplay_mobsLabel.addMouseListener(click);
     exitLabel.addMouseListener(click);
+
+    howtoplay_mobsPane.getNextButton().addMouseListener(click);
+    howtoplay_mobsPane.getBackButton().addMouseListener(click);
+    howtoplay_objectsPane.getBackButton().addMouseListener(click);
   }
 
   public void setMenu() {
-    backgroundLabel = setImageIcon(0,0,"res/textures/backgroundMenu.png");
-    playLabel = setImageIcon(xLabel,yLabel,"res/textures/Play_Button.png");
+    backgroundLabel = setImageIcon(0, 0, "res/textures/backgroundMenu.png");
+    playLabel = setImageIcon(xLabel, yLabel, "res/textures/Play_Button.png");
     continueLabel = setImageIcon(xLabel, yLabel + 100, "res/textures/Continue_Button.png");
     highscoreLabel = setImageIcon(xLabel, yLabel + 200, "res/textures/Highscore_Button.png");
-    howtoplayLabel = setImageIcon(xLabel, yLabel + 300, "res/textures/Howtoplay_Button.png");
+    howtoplay_mobsLabel = setImageIcon(xLabel, yLabel + 300, "res/textures/Howtoplay_Button.png");
     exitLabel = setImageIcon(xLabel, yLabel + 400, "res/textures/Exit_Button.png");
 
     menuPane.add(playLabel);
     menuPane.add(continueLabel);
     menuPane.add(highscoreLabel);
-    menuPane.add(howtoplayLabel);
+    menuPane.add(howtoplay_mobsLabel);
     menuPane.add(exitLabel);
 
     menuPane.add(backgroundLabel);
     menuContainer.add(menuPane, "MENU_PANEL");
   }
 
-  public JLabel setImageIcon(int x, int y, String source){
+  public JLabel setImageIcon(int x, int y, String source) {
 
     JLabel jLabel = new JLabel();
     ImageIcon imageIcon = new ImageIcon(source);
 
-    jLabel.setBounds(x,y,imageIcon.getIconWidth(),imageIcon.getIconHeight());
+    jLabel.setBounds(x, y, imageIcon.getIconWidth(), imageIcon.getIconHeight());
     jLabel.setIcon(imageIcon);
     return jLabel;
   }
@@ -133,11 +142,23 @@ public class MenuUI {
     return gameinfoContainer;
   }
 
-  public JLabel getHowtoplayLabel() {
-    return howtoplayLabel;
-  }
-
   public Frame getFrame() {
     return _frame;
+  }
+
+  public Howtoplay_Mobs getHowtoplay_mobsPane() {
+    return howtoplay_mobsPane;
+  }
+
+  public JLabel getContinueLabel() {
+    return continueLabel;
+  }
+
+  public JLabel getHowtoplay_mobsLabel() {
+    return howtoplay_mobsLabel;
+  }
+
+  public Howtoplay_Objects getHowtoplay_objectsPane() {
+    return howtoplay_objectsPane;
   }
 }

@@ -45,7 +45,26 @@ public class MouseProcess extends MouseAdapter {
       menu.getCardLayout().show(menu.getMenuContainer(), "GAME_PANEL");
     }
 
-    if(e.getSource() == menu.getHowtoplayLabel()) {
+    /**
+     * CON HANG A BINH
+     */
+    if(e.getSource() == menu.getContinueLabel()) {
+      // your code goes here
+    }
+
+    if(e.getSource() == menu.getHowtoplay_mobsLabel()) {
+      menu.getCardLayout().show(menu.getMenuContainer(), "HTP_MOBS");
+    }
+
+    if(e.getSource() == menu.getHowtoplay_mobsPane().getNextButton())  {
+      menu.getCardLayout().show(menu.getMenuContainer(), "HTP_OBJECTS");
+    }
+
+    if(e.getSource() == menu.getHowtoplay_mobsPane().getBackButton()) {
+      menu.getCardLayout().show(menu.getMenuContainer(), "MENU_PANEL");
+    }
+
+    if(e.getSource() == menu.getHowtoplay_objectsPane().getBackButton()) {
       menu.getCardLayout().show(menu.getMenuContainer(), "HTP_MOBS");
     }
 

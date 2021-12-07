@@ -24,11 +24,6 @@ public class Frame extends JFrame {
     highscore = new Highscore();
     menuUI = new MenuUI(this);
 
-//		_containerpane = new JPanel(new BorderLayout());
-//		_gamepane = new GamePanel(this);
-//		_infopanel = new InfoPanel(_gamepane.getGame());
-//		_containerpane.add(_infopanel, BorderLayout.PAGE_START);
-//		_containerpane.add(_gamepane, BorderLayout.PAGE_END);
     _gamepane = menuUI.getGamePanel();
     _infopanel = menuUI.getInfoPanel();
     _game = _gamepane.getGame();

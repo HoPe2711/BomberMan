@@ -1,29 +1,22 @@
 package main.gui;
 
 import java.awt.BorderLayout;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Howtoplay_Mobs extends JPanel {
+public class Howtoplay_Objects extends JPanel {
 
-  private JLabel howtoplay_mobsLabel;
-  private JLabel nextButton;
+  private JLabel howtoplay_objectsLabel;
   private JLabel backButton;
 
-  public Howtoplay_Mobs() {
+  public Howtoplay_Objects() {
     setLayout(new BorderLayout());
-    howtoplay_mobsLabel = setImageIcon(0, 0, "res/textures/Howtoplay_Mobs.png");
-    nextButton = setImageIcon(825, 740, "res/textures/Next_Button.png");
+    howtoplay_objectsLabel = setImageIcon(0, 0, "res/textures/Howtoplay_Objects.png");
     backButton = setImageIcon(75, 740, "res/textures/Back_Button.png");
 
-    add(nextButton);
     add(backButton);
-    add(howtoplay_mobsLabel);
+    add(howtoplay_objectsLabel);
   }
 
   public JLabel setImageIcon(int x, int y, String source) {
@@ -34,10 +27,6 @@ public class Howtoplay_Mobs extends JPanel {
     jLabel.setBounds(x, y, imageIcon.getIconWidth(), imageIcon.getIconHeight());
     jLabel.setIcon(imageIcon);
     return jLabel;
-  }
-
-  public JLabel getNextButton() {
-    return nextButton;
   }
 
   public JLabel getBackButton() {
