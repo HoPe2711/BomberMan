@@ -2,21 +2,18 @@ package main.gui;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import main.Game;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
+import main.Game;
 import main.gui.menu.Menu;
 
 public class Frame extends JFrame {
 
   public GamePanel _gamepane;
-  private JPanel _containerpane;
-  private InfoPanel _infopanel;
-  private Game _game;
-  private Highscore highscore;
+  private final InfoPanel _infopanel;
+  private final Game _game;
+  private final Highscore highscore;
 
-  private MenuUI menuUI;
+  private final MenuUI menuUI;
 
   public Frame() {
     setJMenuBar(new Menu(this));
@@ -27,7 +24,6 @@ public class Frame extends JFrame {
     _gamepane = menuUI.getGamePanel();
     _infopanel = menuUI.getInfoPanel();
     _game = _gamepane.getGame();
-//		add(_containerpane);
 
     addWindowListener(new WindowAdapter() {
       @Override
@@ -39,7 +35,6 @@ public class Frame extends JFrame {
 
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     pack();
-//		setSize(720, 664);
     setResizable(false);
     setLocationRelativeTo(null);
     setVisible(true);
@@ -47,17 +42,8 @@ public class Frame extends JFrame {
     _game.start();
   }
 
-  /*
-  |--------------------------------------------------------------------------
-  | Game Related
-  |--------------------------------------------------------------------------
-   */
   public void newGame() {
     _game.getBoard().newGame();
-  }
-
-  public void changeLevel(int i) {
-    _game.getBoard().changeLevel(i);
   }
 
   public void pauseGame() {
@@ -66,10 +52,6 @@ public class Frame extends JFrame {
 
   public void resumeGame() {
     _game.getBoard().gameResume();
-  }
-
-  public boolean isRunning() {
-    return _game.isRunning();
   }
 
   public void setTime(int time) {

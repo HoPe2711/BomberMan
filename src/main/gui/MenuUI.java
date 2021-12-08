@@ -6,30 +6,27 @@ import java.awt.event.MouseAdapter;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import main.Game;
 
 public class MenuUI {
 
-  private JPanel menuContainer;
-  private JPanel menuPane;
-  private JPanel gameinfoContainer;
-  private Howtoplay_Mobs howtoplay_mobsPane;
-  private Howtoplay_Objects howtoplay_objectsPane;
-  private HighscorePanel highscorePanel;
+  private final JPanel menuContainer;
+  private final JPanel menuPane;
+  private final Howtoplay_Mobs howtoplay_mobsPane;
+  private final Howtoplay_Objects howtoplay_objectsPane;
+  private final HighscorePanel highscorePanel;
 
-  private CardLayout cardLayout;
+  private final CardLayout cardLayout;
 
-  private JLabel backgroundLabel;
   private JLabel playLabel;
   private JLabel continueLabel;
   private JLabel highscoreLabel;
   private JLabel howtoplay_mobsLabel;
   private JLabel exitLabel;
 
-  private InfoPanel infoPanel;
-  private GamePanel gamePanel;
+  private final InfoPanel infoPanel;
+  private final GamePanel gamePanel;
 
-  private Frame _frame;
+  private final Frame _frame;
 
   private static final int xLabel = 140;
   private static final int yLabel = 300;
@@ -49,7 +46,7 @@ public class MenuUI {
     howtoplay_mobsPane = new Howtoplay_Mobs();
     howtoplay_objectsPane = new Howtoplay_Objects();
     highscorePanel = new HighscorePanel();
-    gameinfoContainer = new JPanel(new BorderLayout());
+    JPanel gameinfoContainer = new JPanel(new BorderLayout());
     gameinfoContainer.add(infoPanel, BorderLayout.PAGE_START);
     gameinfoContainer.add(gamePanel, BorderLayout.PAGE_END);
 
@@ -82,7 +79,7 @@ public class MenuUI {
   }
 
   public void setMenu() {
-    backgroundLabel = setImageIcon(0, 0, "res/textures/backgroundMenu.png");
+    JLabel backgroundLabel = setImageIcon(0, 0, "res/textures/backgroundMenu.png");
     playLabel = setImageIcon(xLabel, yLabel, "res/textures/Play_Button.png");
     continueLabel = setImageIcon(xLabel, yLabel + 100, "res/textures/Continue_Button.png");
     highscoreLabel = setImageIcon(xLabel, yLabel + 200, "res/textures/Highscore_Button.png");
@@ -121,10 +118,6 @@ public class MenuUI {
     return menuPane;
   }
 
-  public JLabel getBackgroundLabel() {
-    return backgroundLabel;
-  }
-
   public HighscorePanel getHighscorePanel() {
     return highscorePanel;
   }
@@ -151,10 +144,6 @@ public class MenuUI {
 
   public InfoPanel getInfoPanel() {
     return infoPanel;
-  }
-
-  public JPanel getGameinfoContainer() {
-    return gameinfoContainer;
   }
 
   public Frame getFrame() {

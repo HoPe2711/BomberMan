@@ -1,18 +1,15 @@
 package main.gui;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.util.TreeMap;
-import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class HighscorePanel extends JPanel {
-  private JLabel highScoreBackGround;
-  private JLabel backButton;
+
+  private final JLabel highScoreBackGround;
+  private final JLabel backButton;
   private JLabel user;
 
   public HighscorePanel() {
@@ -34,7 +31,7 @@ public class HighscorePanel extends JPanel {
     return jLabel;
   }
 
-  public void updateScore(TreeMap<String, Integer> scores){
+  public void updateScore(TreeMap<String, Integer> scores) {
     //render score
   }
 

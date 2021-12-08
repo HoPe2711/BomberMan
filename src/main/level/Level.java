@@ -36,10 +36,6 @@ public abstract class Level implements ILevel {
     return -1;
   }
 
-  public String getActualCode() {
-    return codes[_level - 1];
-  }
-
   public int getWidth() {
     return _width;
   }

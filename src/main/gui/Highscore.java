@@ -15,8 +15,8 @@ import java.util.TreeMap;
 
 public class Highscore {
 
-  private TreeMap<String, Integer> highscoreList;
-  private String file = "res/data/Highscore";
+  private final TreeMap<String, Integer> highscoreList;
+  private final String file = "res/data/Highscore";
 
   public Highscore() {
     highscoreList = new TreeMap<>();
@@ -27,13 +27,13 @@ public class Highscore {
       ex.printStackTrace();
     }
 
+    assert robot != null;
     robot.keyPress(KeyEvent.VK_CONTROL);
     robot.keyPress(KeyEvent.VK_P);
     robot.keyRelease(KeyEvent.VK_CONTROL);
     robot.keyRelease(KeyEvent.VK_P);
-    FileInputStream fileInputStream = null;
-    BufferedReader bufferedReader = null;
-    // file data -> Treemap
+    FileInputStream fileInputStream;
+    BufferedReader bufferedReader;
     try {
       fileInputStream = new FileInputStream(file);
       bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
@@ -58,31 +58,28 @@ public class Highscore {
   public static <K, V extends Comparable<V>> Map<K, V>
   sortByValues(final Map<K, V> map) {
     Comparator<K> valueComparator =
-        new Comparator<K>() {
-          public int compare(K k1, K k2) {
-            int compare =
-                map.get(k1).compareTo(map.get(k2));
-            if (compare == 0) {
-              return 1;
-            } else {
-              return -compare;
-            }
+        (k1, k2) -> {
+          int compare =
+              map.get(k1).compareTo(map.get(k2));
+          if (compare == 0) {
+            return 1;
+          } else {
+            return -compare;
           }
         };
 
     Map<K, V> sortedByValues =
-        new TreeMap<K, V>(valueComparator);
+        new TreeMap<>(valueComparator);
     sortedByValues.putAll(map);
     return sortedByValues;
   }
 
   public void addPoint(int point) {
-    String name = "test"; // player name when game over
+    String name = "test";
 
     highscoreList.put(name, point);
   }
 
-  // Treemap -> file data
   public void savePoint() {
     try {
       BufferedWriter writer = new BufferedWriter(new FileWriter(file));

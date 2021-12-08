@@ -2,10 +2,7 @@ package main.entities.bomb;
 
 import main.Board;
 import main.entities.Entity;
-import main.entities.LayeredEntity;
 import main.entities.mob.Mob;
-import main.entities.tile.GrassTile;
-import main.entities.tile.WallTile;
 import main.graphics.Screen;
 import main.graphics.Sprite;
 

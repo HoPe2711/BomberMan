@@ -1,15 +1,13 @@
 package main.gui;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class GameSound {
+
   public static GameSound instance;
 
   public static final String BACKGROUND = "res/data/sound/backgroundSound.wav";
@@ -25,7 +23,7 @@ public class GameSound {
   Clip clip;
   AudioInputStream audioInputStream;
 
-  private HashMap<String, Clip> audioMap;
+  private final HashMap<String, Clip> audioMap;
 
   public GameSound() {
     audioMap = new HashMap<>();

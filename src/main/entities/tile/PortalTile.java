@@ -25,6 +25,7 @@ public class PortalTile extends Tile {
 
       if (e.getXTile() == getX() && e.getYTile() == getY()) {
         if (_board.detectNoEnemies()) {
+          _board.addPoints(_board.getTime() * 5);
           _board.nextLevel();
         }
       }
