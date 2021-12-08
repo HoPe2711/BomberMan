@@ -13,8 +13,8 @@ public class Howtoplay_Mobs extends JPanel {
   public Howtoplay_Mobs() {
     setLayout(new BorderLayout());
     JLabel howtoplay_mobsLabel = setImageIcon(0, 0, "res/textures/Howtoplay_Mobs.png");
-    nextButton = setImageIcon(825, 740, "res/textures/Next_Button.png");
-    backButton = setImageIcon(75, 740, "res/textures/Back_Button.png");
+    nextButton = setImageIcon(825, 725, "res/textures/Next_Button.png");
+    backButton = setImageIcon(75, 725, "res/textures/Back_Button.png");
 
     add(nextButton);
     add(backButton);

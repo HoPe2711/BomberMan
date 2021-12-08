@@ -12,7 +12,7 @@ public class Howtoplay_Objects extends JPanel {
   public Howtoplay_Objects() {
     setLayout(new BorderLayout());
     JLabel howtoplay_objectsLabel = setImageIcon(0, 0, "res/textures/Howtoplay_Objects.png");
-    backButton = setImageIcon(75, 740, "res/textures/Back_Button.png");
+    backButton = setImageIcon(75, 725, "res/textures/Back_Button.png");
 
     add(backButton);
     add(howtoplay_objectsLabel);

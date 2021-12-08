@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
+import javax.swing.JOptionPane;
 
 public class Highscore {
 
@@ -32,6 +33,7 @@ public class Highscore {
     robot.keyPress(KeyEvent.VK_P);
     robot.keyRelease(KeyEvent.VK_CONTROL);
     robot.keyRelease(KeyEvent.VK_P);
+
     FileInputStream fileInputStream;
     BufferedReader bufferedReader;
     try {
@@ -47,8 +49,6 @@ public class Highscore {
     } catch (IOException e) {
       e.printStackTrace();
     }
-
-    System.out.println(getHighscoreList());
   }
 
   public Map<String, Integer> getHighscoreList() {
@@ -75,9 +75,14 @@ public class Highscore {
   }
 
   public void addPoint(int point) {
-    String name = "test";
+    String name = JOptionPane.showInputDialog("Enter your name: ");
 
-    highscoreList.put(name, point);
+    if (name != null) {
+      if (highscoreList.containsKey(name)) {
+        if(highscoreList.get(name) > point) return;
+      }
+      highscoreList.put(name, point);
+    }
   }
 
   public void savePoint() {
@@ -94,9 +99,5 @@ public class Highscore {
     } catch (Exception e) {
       e.printStackTrace();
     }
-  }
-
-  public TreeMap<String, Integer> getUserHighscore(){
-    return highscoreList;
   }
 }

@@ -114,7 +114,6 @@ public class Screen {
       drawCenteredString("SCORE: " + points, getRealWidth(),
           getRealHeight() + (Game.TILES_SIZE * 2) * Game.SCALE, g);
     }
-
   }
 
   public void drawChangeLevel(Graphics g, int level) {

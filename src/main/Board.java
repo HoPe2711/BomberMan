@@ -161,7 +161,6 @@ public class Board implements IRender {
 
   public void endGame() {
     _screenToShow = 1;
-    _game.get_frame().getHighscore().addPoint(_points);
     if (_points > 0) {
       GameSound.getInstance().play(GameSound.WIN);
     } else {
@@ -169,6 +168,7 @@ public class Board implements IRender {
     }
     _game.resetScreenDelay();
     _game.pause();
+    _game.get_frame().getHighscore().addPoint(_points);
   }
 
   public boolean detectNoEnemies() {
@@ -198,7 +198,9 @@ public class Board implements IRender {
 
   public void drawScreen(Graphics g) {
     switch (_screenToShow) {
-      case 1 -> _screen.drawEndGame(g, _points);
+      case 1 -> {
+        _screen.drawEndGame(g, _points);
+      }
       case 2 -> _screen.drawChangeLevel(g, _level.getLevel());
       case 3 -> _screen.drawPaused(g);
     }
