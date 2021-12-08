@@ -26,7 +26,7 @@ public class AIHigh extends AI {
   public int calculateDirection() {
     int m = 11;
     int n = 29;
-    int[][] a = new int[30][30];
+    int[][] a = new int[31][31];
     for (int i = 1; i <= m; i++) {
       for (int j = 1; j <= n; j++) {
         if (a[i][j] == 1) {
@@ -104,6 +104,7 @@ public class AIHigh extends AI {
       for (int i = 0; i < 4; i++) {
         int u = x + dx[i];
         int v = y + dy[i];
+        if (u >= 1 && v >= 1 && u <= m && v <= n)
         if (a[u][v] == 0) {
           sel.add(i);
         }

@@ -1,15 +1,14 @@
 package main.graphics;
 
-import java.util.Arrays;
-import main.Board;
-import main.Game;
-import main.entities.mob.Player;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
-
+import java.util.Arrays;
+import main.Board;
+import main.Game;
 import main.entities.Entity;
+import main.entities.mob.Player;
 
 public class Screen {
 

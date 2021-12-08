@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 import main.entities.Entity;
 import main.entities.Message;
 import main.entities.bomb.Bomb;
@@ -38,6 +37,8 @@ public class Board implements IRender {
   private int _time = Game.TIME;
   private int _points = Game.POINTS;
   private int _lives = Game.LIVES;
+
+  private int cnt = 0;
 
   public Board(Game game, Keyboard input, Screen screen) {
     _game = game;
@@ -99,7 +100,7 @@ public class Board implements IRender {
     _points = Game.POINTS;
     _lives = Game.LIVES;
     Player._powerups.clear();
-
+    cnt = 0;
     _game.playerSpeed = 1.0;
     _game.bombRadius = 1;
     _game.bombRate = 1;
@@ -168,7 +169,6 @@ public class Board implements IRender {
     }
     _game.resetScreenDelay();
     _game.pause();
-    _game.get_frame().getHighscore().addPoint(_points);
   }
 
   public boolean detectNoEnemies() {
@@ -200,10 +200,18 @@ public class Board implements IRender {
     switch (_screenToShow) {
       case 1 -> {
         _screen.drawEndGame(g, _points);
+        getName();
       }
       case 2 -> _screen.drawChangeLevel(g, _level.getLevel());
       case 3 -> _screen.drawPaused(g);
     }
+  }
+
+  public void getName(){
+    if (cnt == 3) {
+      _game.get_frame().getHighscore().addPoint(_points);
+    }
+    cnt++;
   }
 
   public Entity getEntity(double x, double y, Mob m) {

@@ -1,5 +1,7 @@
 package main.gui;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
@@ -33,6 +35,8 @@ public class Frame extends JFrame {
       }
     });
 
+    Image icon = Toolkit.getDefaultToolkit().getImage("res/textures/icon.png");
+    setIconImage(icon);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     pack();
     setResizable(false);

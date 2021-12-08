@@ -23,7 +23,7 @@ public class DestroyableTile extends Tile {
 			if (_animate < MAX_ANIMATE) {
 				_animate++;
 			} else {
-				_animate = 0; //reset animation
+				_animate = 0;
 			}
 			if (_timeToDisapear > 0) {
 				_timeToDisapear--;

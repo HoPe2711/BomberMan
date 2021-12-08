@@ -2,42 +2,30 @@ package main.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.TreeMap;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class HighscorePanel extends JPanel {
 
-  private final JLabel highScoreBackGround;
   private final JLabel backButton;
-  private JLabel rank;
-  private JLabel name;
-  private JLabel score;
-  private JLabel one;
-  private JLabel two;
-  private JLabel three;
-  private JLabel four;
-  private JLabel five;
-  private JLabel six;
-  private JLabel nameOne;
-  private JLabel nameTwo;
-  private JLabel nameThree;
-  private JLabel nameFour;
-  private JLabel nameFive;
-  private JLabel nameSix;
-  private JLabel scoreOne;
-  private JLabel scoreTwo;
-  private JLabel scoreThree;
-  private JLabel scoreFour;
-  private JLabel scoreFive;
-  private JLabel scoreSix;
+  private final JLabel nameOne;
+  private final JLabel nameTwo;
+  private final JLabel nameThree;
+  private final JLabel nameFour;
+  private final JLabel nameFive;
+  private final JLabel nameSix;
+  private final JLabel scoreOne;
+  private final JLabel scoreTwo;
+  private final JLabel scoreThree;
+  private final JLabel scoreFour;
+  private final JLabel scoreFive;
+  private final JLabel scoreSix;
 
-  private static Font font = new Font("Arial", Font.PLAIN, 40);
+  private static final Font font = new Font("Arial", Font.PLAIN, 40);
 
   private static final int[] ROW = {25, 100, 175, 250, 325, 400, 475};
 
@@ -48,47 +36,47 @@ public class HighscorePanel extends JPanel {
   public HighscorePanel() {
     setLayout(new BorderLayout());
 
-    rank = new JLabel("Rank");
+    JLabel rank = new JLabel("Rank");
     rank.setFont(font);
     rank.setForeground(Color.white);
     rank.setBounds(FIRSTCOL, ROW[0], 300, 300);
 
-    name = new JLabel("Player's name");
+    JLabel name = new JLabel("Player's name");
     name.setFont(font);
     name.setForeground(Color.white);
     name.setBounds(SECONDCOL, ROW[0], 300, 300);
 
-    score = new JLabel("Score");
+    JLabel score = new JLabel("Score");
     score.setFont(font);
     score.setForeground(Color.white);
     score.setBounds(THIRDCOL, ROW[0], 300, 300);
 
-    one = new JLabel("1");
+    JLabel one = new JLabel("1");
     one.setFont(font);
     one.setForeground(Color.white);
     one.setBounds(FIRSTCOL + 35, ROW[1], 300, 300);
 
-    two = new JLabel("2");
+    JLabel two = new JLabel("2");
     two.setFont(font);
     two.setForeground(Color.white);
     two.setBounds(FIRSTCOL + 35, ROW[2], 300, 300);
 
-    three = new JLabel("3");
+    JLabel three = new JLabel("3");
     three.setFont(font);
     three.setForeground(Color.white);
     three.setBounds(FIRSTCOL + 35, ROW[3], 300, 300);
 
-    four = new JLabel("4");
+    JLabel four = new JLabel("4");
     four.setFont(font);
     four.setForeground(Color.white);
     four.setBounds(FIRSTCOL + 35, ROW[4], 300, 300);
 
-    five = new JLabel("5");
+    JLabel five = new JLabel("5");
     five.setFont(font);
     five.setForeground(Color.white);
     five.setBounds(FIRSTCOL + 35, ROW[5], 300, 300);
 
-    six = new JLabel("6");
+    JLabel six = new JLabel("6");
     six.setFont(font);
     six.setForeground(Color.white);
     six.setBounds(FIRSTCOL + 35, ROW[6], 300, 300);
@@ -153,7 +141,7 @@ public class HighscorePanel extends JPanel {
     scoreSix.setForeground(Color.white);
     scoreSix.setBounds(THIRDCOL, ROW[6], 300, 300);
 
-    highScoreBackGround = setImageIcon(0, 0, "res/textures/Highscore.png");
+    JLabel highScoreBackGround = setImageIcon(0, 0, "res/textures/Highscore.png");
     backButton = setImageIcon(75, 725, "res/textures/Back_Button.png");
 
     add(scoreSix);
@@ -192,16 +180,13 @@ public class HighscorePanel extends JPanel {
   }
 
   public void updateScore(Map<String, Integer> scores) {
-    System.out.println(scores);
+
     ArrayList<String> names = new ArrayList<>();
     ArrayList<Integer> points = new ArrayList<>();
 
     for (Map.Entry<String, Integer> pair : scores.entrySet()) {
       names.add(pair.getKey());
       points.add(pair.getValue());
-    }
-    for (int i = 0; i < names.size(); i++) {
-      System.out.println(names.get(i));
     }
 
     if (names.size() >= 1) {

@@ -5,8 +5,6 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-
-
 import main.exceptions.BombermanException;
 import main.graphics.Screen;
 import main.gui.Frame;

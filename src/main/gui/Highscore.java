@@ -75,6 +75,14 @@ public class Highscore {
   }
 
   public void addPoint(int point) {
+    int i = 0;
+    boolean ok = false;
+    for (Map.Entry<String, Integer> pair : getHighscoreList().entrySet()) {
+      if (pair.getValue() < point) ok = true;
+      i++;
+      if (i==6) break;
+    }
+    if (!ok && i>=6) return;
     String name = JOptionPane.showInputDialog("Enter your name: ");
 
     if (name != null) {

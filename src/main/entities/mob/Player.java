@@ -79,7 +79,7 @@ public class Player extends Mob {
 
       int xt = Coordinates.pixelToTile(_x + (double) _sprite.getSize() / 2);
       int yt = Coordinates.pixelToTile((_y + (double) _sprite.getSize() / 2)
-          - _sprite.getSize()); //subtract half player height and minus 1 y position
+          - _sprite.getSize());
       for (Bomb a : _bombs) {
         if (a.getX() == xt && a.getY() == yt) {
           return;

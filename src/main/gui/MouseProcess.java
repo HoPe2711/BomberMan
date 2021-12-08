@@ -5,7 +5,6 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.TreeMap;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -150,7 +149,6 @@ public class MouseProcess extends MouseAdapter {
 
     if (e.getSource() == menu.getHighscorePanel().getBackButton()) {
       GameSound.getInstance().play(GameSound.CLICK);
-      System.out.println(1);
       menu.getCardLayout().show(menu.getMenuContainer(), "MENU_PANEL");
     }
 
@@ -164,6 +162,7 @@ public class MouseProcess extends MouseAdapter {
       int n = JOptionPane.showConfirmDialog(menu.getMenuContainer(), "BAN CÓ MUỐN THOÁT?", "Exit",
           JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
       if (n == 0) {
+        menu.getFrame().getHighscore().savePoint();
         System.exit(0);
       }
     }
