@@ -67,7 +67,6 @@ public class GameSound {
           AudioSystem.getAudioInputStream(new File(name).getAbsoluteFile());
       clip = AudioSystem.getClip();
       clip.open(audioInputStream);
-
       audioMap.put(name, clip);
     } catch (Exception e) {
       e.printStackTrace();
@@ -79,8 +78,12 @@ public class GameSound {
   }
 
   public void play(String name) {
+    if (name.equals(WALK) && audioMap.get(name).isRunning()) return;
     try {
       audioMap.get(name).stop();
+      if (name.equals(BACKGROUND)) {
+        audioMap.get(name).loop(Clip.LOOP_CONTINUOUSLY);
+      }
       audioMap.get(name).setMicrosecondPosition(0);
       audioMap.get(name).start();
     } catch (Exception e) {

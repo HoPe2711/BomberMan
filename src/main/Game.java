@@ -20,7 +20,7 @@ public class Game extends Canvas {
 
   public static int SCALE = 4;
 
-  public static final String TITLE = "Bomberman ";
+  public static final String TITLE = "Bomberman";
 
   private static final int BOMBRATE = 1;
   private static final int BOMBRADIUS = 1;
