@@ -1,14 +1,8 @@
 package main.level;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
 import java.util.Objects;
-import java.util.StringTokenizer;
 import main.Board;
 import main.Game;
-import main.entities.LayeredEntity;
 import main.entities.mob.Player;
 import main.entities.mob.enemy.Balloom;
 import main.entities.mob.enemy.Doll;
@@ -23,8 +17,16 @@ import main.entities.tile.powerup.PowerupBombs;
 import main.entities.tile.powerup.PowerupFlames;
 import main.entities.tile.powerup.PowerupSpeed;
 import main.exceptions.LoadLevelException;
-import main.graphics.Screen;
 import main.graphics.Sprite;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.StringTokenizer;
+
+
+import main.entities.LayeredEntity;
+import main.graphics.Screen;
 
 public class FileLevel extends Level {
 

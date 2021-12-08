@@ -124,6 +124,10 @@ public class Board implements IRender {
     _bombs.clear();
     _messages.clear();
     Game.addBombRate(Game.bomMax - Game.bombRate);
+    if (level == 6) {
+      endGame();
+      return;
+    }
     try {
       _level = new FileLevel("levels/Level" + level + ".txt", this);
       _entities = new Entity[_level.getHeight() * _level.getWidth()];
