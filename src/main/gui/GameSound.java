@@ -50,7 +50,6 @@ public class GameSound {
   }
 
   public void stop() {
-    getAudio(BACKGROUND).stop();
     getAudio(BOMBPLACED).stop();
     getAudio(BOMBEXPLOSED).stop();
     getAudio(CLICK).stop();

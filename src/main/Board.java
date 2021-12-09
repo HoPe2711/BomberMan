@@ -40,6 +40,8 @@ public class Board implements IRender {
 
   private int cnt = 0;
 
+  private boolean win = false;
+
   public Board(Game game, Keyboard input, Screen screen) {
     _game = game;
     _input = input;
@@ -105,6 +107,7 @@ public class Board implements IRender {
     _game.bombRadius = 1;
     _game.bombRate = 1;
     Game.bomMax = _game.bombRate;
+    win = false;
   }
 
   public void restartLevel() {
@@ -125,7 +128,8 @@ public class Board implements IRender {
     _messages.clear();
     Game.addBombRate(Game.bomMax - Game.bombRate);
     if (level == 6) {
-      endGame();
+      win = true;
+      winGame();
       return;
     }
     try {
@@ -164,13 +168,17 @@ public class Board implements IRender {
     }
   }
 
+  public void winGame() {
+    _screenToShow = 1;
+    GameSound.getInstance().play(GameSound.WIN);
+    _game.resetScreenDelay();
+    _game.pause();
+  }
+
   public void endGame() {
     _screenToShow = 1;
-    if (_points > 0) {
-      GameSound.getInstance().play(GameSound.WIN);
-    } else {
-      GameSound.getInstance().play(GameSound.LOSE);
-    }
+    GameSound.getInstance().play(GameSound.LOSE);
+
     _game.resetScreenDelay();
     _game.pause();
   }
@@ -203,7 +211,7 @@ public class Board implements IRender {
   public void drawScreen(Graphics g) {
     switch (_screenToShow) {
       case 1 -> {
-        _screen.drawEndGame(g, _points);
+        _screen.drawEndGame(g, _points, win);
         getName();
       }
       case 2 -> _screen.drawChangeLevel(g, _level.getLevel());
@@ -211,7 +219,7 @@ public class Board implements IRender {
     }
   }
 
-  public void getName(){
+  public void getName() {
     if (cnt == 3) {
       _game.get_frame().getHighscore().addPoint(_points);
     }

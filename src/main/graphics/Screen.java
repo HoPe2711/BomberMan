@@ -97,22 +97,22 @@ public class Screen {
     return temp;
   }
 
-  public void drawEndGame(Graphics g, int points) {
+  public void drawEndGame(Graphics g, int points, boolean win) {
     g.setColor(Color.black);
     g.fillRect(0, 0, getRealWidth(), getRealHeight());
     Font font = new Font("Arial", Font.PLAIN, 20 * Game.SCALE);
     g.setFont(font);
     g.setColor(Color.white);
-    if (points == 0) {
+    if (!win) {
       drawCenteredString("GAME OVER!", getRealWidth(), getRealHeight(), g);
     } else {
       drawCenteredString("YOU WIN!", getRealWidth(), getRealHeight(), g);
-      font = new Font("Arial", Font.PLAIN, 10 * Game.SCALE);
-      g.setFont(font);
-      g.setColor(Color.yellow);
-      drawCenteredString("SCORE: " + points, getRealWidth(),
-          getRealHeight() + (Game.TILES_SIZE * 2) * Game.SCALE, g);
     }
+    font = new Font("Arial", Font.PLAIN, 10 * Game.SCALE);
+    g.setFont(font);
+    g.setColor(Color.yellow);
+    drawCenteredString("SCORE: " + points, getRealWidth(),
+        getRealHeight() + (Game.TILES_SIZE * 2) * Game.SCALE, g);
   }
 
   public void drawChangeLevel(Graphics g, int level) {

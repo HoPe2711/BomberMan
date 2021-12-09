@@ -65,6 +65,11 @@ public class MouseProcess extends MouseAdapter {
       menu.getHowtoplay_mobsPane().getBackButton().setIcon(backIcon);
     }
 
+    if(e.getSource() == menu.getHowtoplay_objectsPane().getBackButton()) {
+      ImageIcon backIcon = new ImageIcon("res/textures/Back_ButtonDark.png");
+      menu.getHowtoplay_objectsPane().getBackButton().setIcon(backIcon);
+    }
+
     if(e.getSource() == menu.getHighscorePanel().getBackButton()) {
       ImageIcon backIcon = new ImageIcon("res/textures/Back_ButtonDark.png");
       menu.getHighscorePanel().getBackButton().setIcon(backIcon);
@@ -105,6 +110,11 @@ public class MouseProcess extends MouseAdapter {
     if(e.getSource() == menu.getHowtoplay_mobsPane().getBackButton()) {
       ImageIcon backIcon = new ImageIcon("res/textures/Back_Button.png");
       menu.getHowtoplay_mobsPane().getBackButton().setIcon(backIcon);
+    }
+
+    if(e.getSource() == menu.getHowtoplay_objectsPane().getBackButton()) {
+      ImageIcon backIcon = new ImageIcon("res/textures/Back_Button.png");
+      menu.getHowtoplay_objectsPane().getBackButton().setIcon(backIcon);
     }
 
     if(e.getSource() == menu.getHighscorePanel().getBackButton()) {

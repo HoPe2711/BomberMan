@@ -8,6 +8,7 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import main.gui.CodeDialog;
 import main.gui.Frame;
+import main.gui.GameSound;
 import main.gui.MenuUI;
 
 public class Game extends JMenu {
@@ -51,6 +52,7 @@ public class Game extends JMenu {
 
       if (e.getActionCommand().equals("Back to menu")) {
         _frame.pauseGame();
+        GameSound.getInstance().stop();
         MenuUI menu = _frame.getMenuUI();
         menu.getCardLayout().show(menu.getMenuContainer(), "MENU_PANEL");
       }
