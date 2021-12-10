@@ -18,8 +18,8 @@ public class AIMedium extends AI {
   @Override
   public int calculateDirection() {
     if (_e instanceof Oneal){
-      double speed = (random.nextInt(3)+2)/4.0;
-      _e.set_speed(Game.getPlayerSpeed()*speed);
+      double speed = (random.nextInt(4)+2)/4.0;
+      _e.set_speed(speed);
     }
     if (_player == null) {
       return random.nextInt(4);
